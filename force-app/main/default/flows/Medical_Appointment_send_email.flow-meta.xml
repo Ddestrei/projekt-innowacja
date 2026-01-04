@@ -48,6 +48,9 @@ Medical Center Team</stringValue>
         </inputParameters>
         <inputParameters>
             <name>recipientId</name>
+            <value>
+                <elementReference>Get_Patient.Email__c</elementReference>
+            </value>
         </inputParameters>
         <inputParameters>
             <name>relatedRecordId</name>
