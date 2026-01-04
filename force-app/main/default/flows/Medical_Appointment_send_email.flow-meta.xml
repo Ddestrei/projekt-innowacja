@@ -9,27 +9,50 @@
         <actionType>emailSimple</actionType>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
+            <name>recipientAddresses</name>
+            <value/>
+        </inputParameters>
+        <inputParameters>
             <name>senderType</name>
             <value>
                 <stringValue>CurrentUser</stringValue>
             </value>
         </inputParameters>
         <inputParameters>
-            <name>useEmailTemplate</name>
+            <name>composeEmailContent</name>
             <value>
                 <stringValue>True</stringValue>
             </value>
         </inputParameters>
         <inputParameters>
-            <name>emailTemplateId</name>
+            <name>emailSubject</name>
             <value>
-                <stringValue>00XUD000008vtkj2AA</stringValue>
+                <stringValue>Your Medical Appointment Has Been Created or Updated</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <stringValue>Dear Patient,
+
+We would like to inform you that your medical appointment has been created or updated.
+
+Appointment details:
+Start time: {!$Record.Start_Time__c}
+End time: {!$Record.End_Time__c}
+Status: {!$Record.Status__c}
+
+Kind regards,
+Medical Center Team</stringValue>
             </value>
         </inputParameters>
         <inputParameters>
             <name>recipientId</name>
+        </inputParameters>
+        <inputParameters>
+            <name>relatedRecordId</name>
             <value>
-                <elementReference>Get_Patient.Id</elementReference>
+                <stringValue></stringValue>
             </value>
         </inputParameters>
         <nameSegment>emailSimple</nameSegment>
@@ -70,7 +93,7 @@
             <conditionLogic>and</conditionLogic>
             <conditions>
                 <leftValueReference>Get_Patient.Email__c</leftValueReference>
-                <operator>EqualTo</operator>
+                <operator>IsNull</operator>
                 <rightValue>
                     <booleanValue>false</booleanValue>
                 </rightValue>
