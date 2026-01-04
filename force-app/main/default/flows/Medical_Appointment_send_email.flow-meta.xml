@@ -62,6 +62,29 @@ Medical Center Team</stringValue>
         <versionString>2.0.1</versionString>
     </actionCalls>
     <apiVersion>65.0</apiVersion>
+    <variables>
+        <name>Patient_Email__c</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <assignments>
+        <name>Assign_Patient_Email</name>
+        <label>Assign Patient Email</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <field>Patient_Email__c</field>
+            <operator>Equals</operator>
+            <value>
+                <stringValue>{!Get_Patient.Email__c}</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Should_Send_Email</targetReference>
+        </connector>
+    </assignments>
     <decisions>
         <name>Has_Patient</name>
         <label>Has Patient</label>
