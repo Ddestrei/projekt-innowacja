@@ -1,9 +1,9 @@
 public with sharing class SyncSchedulerService {
 
     public static void reschedule() {
-        Sync_Config__mdt config = [
+        Sync_Config__c config = [
             SELECT Cron_Expression__c, Is_Active__c
-            FROM Sync_Config__mdt
+            FROM Sync_Config__c
             LIMIT 1
         ];
 
